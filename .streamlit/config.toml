@@ -2,3 +2,4 @@
 gatherUsageStats = false
 [theme]
 base="dark"
+primaryColor="#e414ee"
