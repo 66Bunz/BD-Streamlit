@@ -30,10 +30,10 @@ def crea_pagina():
 
             for index, istruttore in df_istruttori.iterrows():
                 col21, col22 = col2.columns([3, 1])
-                col21.markdown(f"### Istruttore {index + 1}")
+                col21.markdown(f"### :green[{istruttore['Nome']} {istruttore['Cognome']}]")
                 col21.markdown(f"**Codice Fiscale**: {istruttore['CodFisc']}")
-                col21.markdown(f"**Nome**: {istruttore['Nome']}")
-                col21.markdown(f"**Cognome**: {istruttore['Cognome']}")
+                # col21.markdown(f"**Nome**: {istruttore['Nome']}")
+                # col21.markdown(f"**Cognome**: {istruttore['Cognome']}")
                 col21.markdown(f"**Data di Nascita**: {istruttore['DataNascita']}")
                 col21.markdown(f"**Email**: {istruttore['Email']}")
                 if istruttore["Telefono"] is None:
@@ -59,9 +59,11 @@ def crea_pagina():
 
 
 if __name__ == "__main__":
-    st.title("Istruttori disponibili")
+    st.title(":blue[Istruttori disponibili]")
+
+    st.logo("images\BunzLogo4.png", link="https://github.com/66Bunz/BD-Streamlit")
 
     if check_connection():
         crea_pagina()
     else:
-        st.error("Connessione al DB non effettuata")
+        st.error("Impossibile mostrare gli istruttori disponibili. Connessione al DB non effettuata. Si prega di connettere il DB dalla sidebar.", icon="🚨")

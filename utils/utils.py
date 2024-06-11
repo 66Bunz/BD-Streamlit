@@ -1,5 +1,6 @@
 import streamlit as st
 from sqlalchemy import create_engine, text
+import time
 
 
 def get_list(attributi, tabella):
@@ -45,20 +46,26 @@ def check_connection():
     if "connection" not in st.session_state.keys():
         st.session_state["connection"] = False
 
-    if st.sidebar.button("Connettiti al Database"):
-        myconnection = connect_db(
-            dialect="mysql+pymysql",
-            username="root",
-            password="",
-            host="localhost",
-            dbname="palestra",
-        )
-        if myconnection is not False:
-            st.session_state["connection"] = myconnection
+    with st.sidebar:
+        if st.button("Connettiti al Database"):
+            with st.spinner("Connettendo il DB..."):
+                myconnection = connect_db(
+                    dialect="mysql+pymysql",
+                    username="root",
+                    password="",
+                    host="localhost",
+                    dbname="palestra",
+                )
+                if myconnection is not False:
+                    st.session_state["connection"] = myconnection
 
-        else:
-            st.session_state["connection"] = False
-            st.sidebar.error("Errore nella connessione al DB")
+                    st.toast("Connessione al DB riuscita", icon="✅")
+
+                else:
+                    st.session_state["connection"] = False
+                    st.error("Errore nella connessione al DB")
+
+                    st.toast("Errore nella connessione al DB", icon="❌")
 
     if st.session_state["connection"]:
         st.sidebar.success("Connesso al DB")

@@ -61,13 +61,15 @@ if __name__ == "__main__":
     st.set_page_config(
         page_title="Quaderno 4",
         layout="centered",
-        initial_sidebar_state="collapsed",
+        initial_sidebar_state="expanded",
         menu_items={
             "Get Help": "https://github.com/66Bunz/BD-Streamlit/issues",
             "Report a bug": "https://github.com/66Bunz/BD-Streamlit/issues",
             "About": "# Quaderno 4 *Basi di dati* - Alessandro Burzio - S313817",
         },
     )
+
+    st.logo("images\BunzLogo4.png", link="https://github.com/66Bunz/BD-Streamlit")
 
     if "connection" not in st.session_state.keys():
         st.session_state["connection"] = False

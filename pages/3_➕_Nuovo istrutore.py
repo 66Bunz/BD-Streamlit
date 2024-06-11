@@ -87,9 +87,11 @@ def crea_pagina():
 
 
 if __name__ == "__main__":
-    st.title("Nuovo istruttore")
+    st.title(":blue[Nuovo istruttore]")
+
+    st.logo("images\BunzLogo4.png", link="https://github.com/66Bunz/BD-Streamlit")
 
     if check_connection():
         crea_pagina()
     else:
-        st.error("Connessione al DB non effettuata")
+        st.error("Impossibile aggiungere un nuovo istruttore. Connessione al DB non effettuata. Si prega di connettere il DB dalla sidebar.", icon="🚨")

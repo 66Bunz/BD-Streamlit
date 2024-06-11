@@ -98,9 +98,11 @@ def crea_pagina():
 
 
 if __name__ == "__main__":
-    st.title("Nuova lezione")
+    st.title(":blue[Nuova lezione]")
+
+    st.logo("images\BunzLogo4.png", link="https://github.com/66Bunz/BD-Streamlit")
 
     if check_connection():
         crea_pagina()
     else:
-        st.error("Connessione al DB non effettuata")
+        st.error("Impossibile aggiungere una nuova lezione. Connessione al DB non effettuata. Si prega di connettere il DB dalla sidebar.", icon="🚨")
