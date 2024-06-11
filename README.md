@@ -79,11 +79,9 @@ pip install -r requirements.txt
 Avviare l'applicazione:
 
 ```pwsh
-python -m streamlit run 📒_Home.py
+streamlit run '📒_Quaderno 4.py'
 ```
 
-<br>
-<br>
 <br>
 <br>
 <br>
